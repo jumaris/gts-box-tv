@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.535,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\uTLibVLC_Demo_Prj.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\uTLibVLC_Demo_Prj.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.508,=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.672,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\tsengine.pas=</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.355,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\UnitFrameMenu.pas=C:\Users\Олег\Documents\RAD Studio\Projects\ALPHA_LIST\UnitFrameTest.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.300,=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\gtsengine.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.473,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\UBarForm.dfm=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\Unit1.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.351,=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\gtse_play.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.076,=C:\Users\Олег\Documents\RAD Studio\Projects\ALPHA_LIST\UnitFrameTest.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.355,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\UnitFrameMenu.dfm=C:\Users\Олег\Documents\RAD Studio\Projects\ALPHA_LIST\UnitFrameTest.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.440,=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\tsengine.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.473,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\UBarForm.pas=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\Unit1.pas</Transaction>
+    <Transaction>2013.03.27 23:51:16.492,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\gTSboxTV.pas=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\uTLibVLC_Demo.pas</Transaction>
+    <Transaction>2013.03.27 23:51:16.492,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\gTSboxTV.dfm=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\uTLibVLC_Demo.dfm</Transaction>
+    <Transaction>2013.03.27 23:56:23.012,C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\ugTSboxTV.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\uTLibVLC_Demo_Prj.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
