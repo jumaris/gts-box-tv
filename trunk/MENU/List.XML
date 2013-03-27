@@ -1,0 +1,15 @@
+<MenuList>
+
+<cat name="ОБЩИЕ2">  
+
+<button name="ОРТ"  img="1.jpg" pid="a299176989f3b905e887bc53d959a2af29b66933"></button>
+</cat>
+
+<cat name="Детс3кие">  
+<button name="JIMJAM" img="1.jpg" pid="2a0b2fc5a28dfe1ab8e47ff52f2908ea4dbc543f">
+</button>
+
+<button name="Первый детский"  img="1.jpg" pid="a299176989f3b905e887bc53d959a2af29b66933">
+</button>
+</cat>
+</MenuList>
