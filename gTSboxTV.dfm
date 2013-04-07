@@ -454,6 +454,7 @@ object FrmMain: TFrmMain
     Align = alClient
     BevelOuter = bvNone
     Color = clBlack
+    ParentBackground = False
     TabOrder = 12
     OnDblClick = pan_VideoDblClick
     object sPanMenu: TsPanel
@@ -527,16 +528,43 @@ object FrmMain: TFrmMain
         TitleHeight = 40
         Spacing = 0
         ActiveFrameIndex = -1
-        ExplicitTop = 48
-        ExplicitWidth = 423
-        ExplicitHeight = 454
+      end
+    end
+    object sButHeader: TsPanel
+      Left = 362
+      Top = 286
+      Width = 225
+      Height = 51
+      Caption = 'sButHeader'
+      TabOrder = 2
+      Visible = False
+      SkinData.SkinSection = 'PANEL'
+      object sButHeaderTxt: TsButton
+        Left = 3
+        Top = 3
+        Width = 425
+        Height = 49
+        Align = alCustom
+        Caption = 'sButHeaderTxt'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -32
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = sButHeaderTxtClick
+        SkinData.SkinSection = 'BUTTON'
       end
     end
     object sPanControl: TsGroupBox
-      Left = -70
-      Top = 286
+      Left = 35
+      Top = 334
       Width = 512
       Height = 193
+      Color = clGradientActiveCaption
+      ParentBackground = False
+      ParentColor = False
       TabOrder = 1
       SkinData.SkinSection = 'GROUPBOX'
       object lblVolume: TLabel
@@ -641,35 +669,6 @@ object FrmMain: TFrmMain
         TabOrder = 6
         OnClick = REFRESH_MENUClick
         SkinData.SkinSection = 'BUTTON'
-      end
-    end
-    object sButHeader: TsPanel
-      Left = 362
-      Top = 286
-      Width = 225
-      Height = 51
-      Caption = 'sButHeader'
-      TabOrder = 2
-      Visible = False
-      SkinData.SkinSection = 'PANEL'
-      object sButHeaderTxt: TsButton
-        Left = 3
-        Top = 3
-        Width = 425
-        Height = 49
-        Align = alCustom
-        Caption = 'sButHeaderTxt'
-        Font.Charset = DEFAULT_CHARSET
-        Font.Color = clWindowText
-        Font.Height = -32
-        Font.Name = 'Tahoma'
-        Font.Style = [fsBold]
-        ParentFont = False
-        TabOrder = 0
-        OnClick = sButHeaderTxtClick
-        SkinData.SkinSection = 'BUTTON'
-        ExplicitLeft = 0
-        ExplicitTop = 0
       end
     end
   end
