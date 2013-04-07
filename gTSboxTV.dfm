@@ -456,180 +456,231 @@ object FrmMain: TFrmMain
     Color = clBlack
     TabOrder = 12
     OnDblClick = pan_VideoDblClick
-    object sFrameBar1: TsFrameBar
-      Left = 393
-      Top = 0
-      Width = 373
-      Height = 479
-      HorzScrollBar.Visible = False
-      VertScrollBar.Range = 280
-      VertScrollBar.Tracking = True
-      Align = alNone
-      AutoMouseWheel = True
-      AutoScroll = False
-      BorderStyle = bsNone
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -43
-      Font.Name = 'Tahoma'
-      Font.Style = [fsBold]
-      ParentFont = False
+    object sPanMenu: TsPanel
+      Left = 344
+      Top = 2
+      Width = 425
+      Height = 456
+      BevelOuter = bvNone
+      Caption = 'sPanMenu'
       TabOrder = 0
-      SkinData.SkinSection = 'BAR'
-      BorderWidth = 0
-      AutoFrameSize = True
-      Items = <
-        item
-          Caption = #1042#1057#1025
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-          Spacing = 0
-        end
-        item
-          Caption = '123123'
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-        end
-        item
-          Caption = '4444'
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-        end
-        item
-          Caption = '123123'
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-        end
-        item
-          Caption = '123123'
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-        end
-        item
-          Caption = '123123'
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-          Spacing = 20
-        end
-        item
-          Cursor = crDefault
-          SkinSection = 'BARTITLE'
-        end>
-      TitleHeight = 40
-      Spacing = 0
-      ActiveFrameIndex = -1
+      SkinData.SkinSection = 'CHECKBOX'
+      object sFrameBar1: TsFrameBar
+        Tag = -1
+        Left = 0
+        Top = 0
+        Width = 425
+        Height = 456
+        HorzScrollBar.Visible = False
+        VertScrollBar.Tracking = True
+        Align = alClient
+        AutoMouseWheel = True
+        BorderStyle = bsNone
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -43
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        SkinData.SkinSection = 'BAR'
+        BorderWidth = 0
+        AutoFrameSize = False
+        Items = <
+          item
+            Caption = #1042#1057#1025
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+            Spacing = 0
+            OnClick = sFrameBar1Items0Click
+          end
+          item
+            Caption = '123123'
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+          end
+          item
+            Caption = '4444'
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+          end
+          item
+            Caption = '123123'
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+          end
+          item
+            Caption = '123123'
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+          end
+          item
+            Caption = '123123'
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+            Spacing = 20
+          end
+          item
+            Cursor = crDefault
+            SkinSection = 'BARTITLE'
+          end>
+        TitleHeight = 40
+        Spacing = 0
+        ActiveFrameIndex = -1
+        ExplicitTop = 48
+        ExplicitWidth = 423
+        ExplicitHeight = 454
+      end
+    end
+    object sPanControl: TsGroupBox
+      Left = -70
+      Top = 286
+      Width = 512
+      Height = 193
+      TabOrder = 1
+      SkinData.SkinSection = 'GROUPBOX'
+      object lblVolume: TLabel
+        Left = 200
+        Top = 128
+        Width = 129
+        Height = 13
+        Alignment = taCenter
+        AutoSize = False
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -13
+        Font.Name = 'MS Sans Serif'
+        Font.Style = [fsBold]
+        ParentFont = False
+      end
+      object edtPID: TsEdit
+        Left = 17
+        Top = 79
+        Width = 320
+        Height = 21
+        Color = clWhite
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clBlack
+        Font.Height = -11
+        Font.Name = 'MS Sans Serif'
+        Font.Style = []
+        ParentFont = False
+        TabOrder = 0
+        Text = 'edtPID'
+        SkinData.SkinSection = 'EDIT'
+        BoundLabel.Indent = 0
+        BoundLabel.Font.Charset = DEFAULT_CHARSET
+        BoundLabel.Font.Color = clWindowText
+        BoundLabel.Font.Height = -11
+        BoundLabel.Font.Name = 'Tahoma'
+        BoundLabel.Font.Style = []
+        BoundLabel.Layout = sclLeft
+        BoundLabel.MaxWidth = 0
+        BoundLabel.UseSkinColor = True
+      end
+      object btn_Stop: TsButton
+        Left = 17
+        Top = 106
+        Width = 75
+        Height = 25
+        Caption = 'PLAY'
+        TabOrder = 1
+        OnClick = bPlayClick
+        SkinData.SkinSection = 'BUTTON'
+      end
+      object btn_PLAY: TsButton
+        Left = 98
+        Top = 106
+        Width = 75
+        Height = 25
+        Caption = 'STOP'
+        TabOrder = 2
+        OnClick = bStopClick
+        SkinData.SkinSection = 'BUTTON'
+      end
+      object sButton4: TsButton
+        Left = 293
+        Top = 165
+        Width = 75
+        Height = 25
+        Caption = #1042#1067#1061#1054#1044
+        TabOrder = 3
+        OnClick = btnExitClick
+        SkinData.SkinSection = 'BUTTON'
+      end
+      object sTrackBarVolume: TsTrackBar
+        Left = 188
+        Top = 106
+        Width = 150
+        Height = 16
+        Max = 200
+        Frequency = 5
+        Position = 100
+        TabOrder = 4
+        OnChange = sTrackBarVolumeChange
+        SkinData.SkinSection = 'TRACKBAR'
+        BarOffsetV = 0
+        BarOffsetH = 0
+      end
+      object REFRESHPROGRAM: TsButton
+        Left = 127
+        Top = 165
+        Width = 138
+        Height = 25
+        Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059
+        TabOrder = 5
+        OnClick = REFRESHPROGRAMClick
+        SkinData.SkinSection = 'BUTTON'
+      end
+      object REFRESH_MENU: TsButton
+        Left = 3
+        Top = 165
+        Width = 118
+        Height = 25
+        Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1052#1045#1053#1070
+        TabOrder = 6
+        OnClick = REFRESH_MENUClick
+        SkinData.SkinSection = 'BUTTON'
+      end
+    end
+    object sButHeader: TsPanel
+      Left = 362
+      Top = 286
+      Width = 225
+      Height = 51
+      Caption = 'sButHeader'
+      TabOrder = 2
+      Visible = False
+      SkinData.SkinSection = 'PANEL'
+      object sButHeaderTxt: TsButton
+        Left = 3
+        Top = 3
+        Width = 425
+        Height = 49
+        Align = alCustom
+        Caption = 'sButHeaderTxt'
+        Font.Charset = DEFAULT_CHARSET
+        Font.Color = clWindowText
+        Font.Height = -32
+        Font.Name = 'Tahoma'
+        Font.Style = [fsBold]
+        ParentFont = False
+        TabOrder = 0
+        OnClick = sButHeaderTxtClick
+        SkinData.SkinSection = 'BUTTON'
+        ExplicitLeft = 0
+        ExplicitTop = 0
+      end
     end
   end
-  object sPanControl: TsGroupBox
-    Left = 8
-    Top = 272
-    Width = 371
-    Height = 193
+  object sScrollBar1: TsScrollBar
+    Left = 128
+    Top = 128
+    Width = 121
+    Height = 17
+    PageSize = 0
     TabOrder = 13
-    SkinData.SkinSection = 'GROUPBOX'
-    object lblVolume: TLabel
-      Left = 200
-      Top = 128
-      Width = 129
-      Height = 13
-      Alignment = taCenter
-      AutoSize = False
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clWindowText
-      Font.Height = -13
-      Font.Name = 'MS Sans Serif'
-      Font.Style = [fsBold]
-      ParentFont = False
-    end
-    object edtPID: TsEdit
-      Left = 17
-      Top = 79
-      Width = 320
-      Height = 21
-      Color = clWhite
-      Font.Charset = DEFAULT_CHARSET
-      Font.Color = clBlack
-      Font.Height = -11
-      Font.Name = 'MS Sans Serif'
-      Font.Style = []
-      ParentFont = False
-      TabOrder = 0
-      Text = 'edtPID'
-      SkinData.SkinSection = 'EDIT'
-      BoundLabel.Indent = 0
-      BoundLabel.Font.Charset = DEFAULT_CHARSET
-      BoundLabel.Font.Color = clWindowText
-      BoundLabel.Font.Height = -11
-      BoundLabel.Font.Name = 'Tahoma'
-      BoundLabel.Font.Style = []
-      BoundLabel.Layout = sclLeft
-      BoundLabel.MaxWidth = 0
-      BoundLabel.UseSkinColor = True
-    end
-    object btn_Stop: TsButton
-      Left = 17
-      Top = 106
-      Width = 75
-      Height = 25
-      Caption = 'PLAY'
-      TabOrder = 1
-      OnClick = bPlayClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object btn_PLAY: TsButton
-      Left = 98
-      Top = 106
-      Width = 75
-      Height = 25
-      Caption = 'STOP'
-      TabOrder = 2
-      OnClick = bStopClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object sButton4: TsButton
-      Left = 293
-      Top = 165
-      Width = 75
-      Height = 25
-      Caption = #1042#1067#1061#1054#1044
-      TabOrder = 3
-      OnClick = btnExitClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object sTrackBarVolume: TsTrackBar
-      Left = 188
-      Top = 106
-      Width = 150
-      Height = 16
-      Max = 200
-      Frequency = 5
-      Position = 100
-      TabOrder = 4
-      OnChange = sTrackBarVolumeChange
-      SkinData.SkinSection = 'TRACKBAR'
-      BarOffsetV = 0
-      BarOffsetH = 0
-    end
-    object REFRESHPROGRAM: TsButton
-      Left = 127
-      Top = 165
-      Width = 138
-      Height = 25
-      Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059
-      TabOrder = 5
-      OnClick = REFRESHPROGRAMClick
-      SkinData.SkinSection = 'BUTTON'
-    end
-    object REFRESH_MENU: TsButton
-      Left = 3
-      Top = 165
-      Width = 118
-      Height = 25
-      Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1052#1045#1053#1070
-      TabOrder = 6
-      OnClick = REFRESH_MENUClick
-      SkinData.SkinSection = 'BUTTON'
-    end
+    SkinManager = sSkinManager1
   end
   object DlgOpen: TOpenDialog
     Left = 734
@@ -14206,8 +14257,8 @@ object FrmMain: TFrmMain
     DOMVendorDesc = 'MSXML'
   end
   object XMLDocument1: TXMLDocument
-    Left = 320
-    Top = 16
+    Left = 184
+    Top = 32
     DOMVendorDesc = 'MSXML'
   end
   object Timer4: TTimer

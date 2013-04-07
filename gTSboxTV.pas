@@ -6,9 +6,12 @@ interface
 uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   ExtCtrls, StdCtrls, ComCtrls, uTLibVLC, ScktComp, Spin, Menus,  gtse_play,
-  xmldom, XMLIntf, sScrollBox, sFrameBar, msxmldom, XMLDoc, sSkinManager,
+  xmldom, XMLIntf, sScrollBox, sFrameBar
+
+  , msxmldom, XMLDoc, sSkinManager,
   ImgList, acAlphaImageList, UnitFrameMenu,sButton, uBarForm,
-   Jpeg, pngimage, GIFImg, sPanel, sEdit, sTrackBar, sGroupBox, ShellApi;
+   Jpeg, pngimage, GIFImg, sPanel, sEdit, sTrackBar, sGroupBox, ShellApi,
+  sScrollBar;
 
 const
   ChrCRLF   = #13#10;
@@ -78,6 +81,10 @@ type
     Timer4: TTimer;
     REFRESH_MENU: TsButton;
     lblVolume: TLabel;
+    sScrollBar1: TsScrollBar;
+    sPanMenu: TsPanel;
+    sButHeaderTxt: TsButton;
+    sButHeader: TsPanel;
     procedure Init;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
@@ -120,6 +127,8 @@ type
     Procedure update_program;
     procedure REFRESHPROGRAMClick(Sender: TObject);
     procedure REFRESH_MENUClick(Sender: TObject);
+    procedure sFrameBar1Items0Click(Sender: TObject);
+    procedure sButHeaderTxtClick(Sender: TObject);
   private
     { Private-Deklarationen }
     procedure PrepareAndStart_Base;
@@ -198,7 +207,7 @@ begin
   VLC_Base.VLC_StopMedia;
 
   gts.STOP;
-  edtPid.Text := TFrameMenu( TSButton(Sender).Parent).idList.Strings[TSButton(Sender).Tag];
+  edtPid.Text := TFrameMenu( TSButton(Sender).Parent.Parent).idList.Strings[TSButton(Sender).Tag];
   sleep(500);
   gts.START(edtPid.Text);
 
@@ -246,59 +255,173 @@ begin
   end;
 end;
 
+procedure TFrmMain.sButHeaderTxtClick(Sender: TObject);
+VAR I : INTEGER;
+begin
+
+  for i := 0 to sFrameBar1.Items.Count-1 do
+        begin //Убираем всё лишние
+           if sFrameBar1.Items.Items[i].Tag=sFrameBar1.tag then sFrameBar1.CloseItem(i, true);
+
+            //sFrameBar1.Items.Items[i].Visible := true;
+        end;
+        sFrameBar1.Animation:= false;
+        try
+          sFrameBar1.Top:=1;
+          for i := 0 to sFrameBar1.Items.Count-1 do
+            begin //Убираем всё лишние
+             // if sFrameBar1.Items.Items[i].Tag=sFrameBar1.tag then sFrameBar1.CloseItem(i, true);
+
+               sFrameBar1.Items.Items[i].Visible := true;
+             end;
+             sButHeader.Visible:= false;
+        finally
+          sFrameBar1.Animation:= true;
+
+        end;
+  //sHOWmESSAGE('AAA');
+
+end;
+
+procedure TFrmMain.sFrameBar1Items0Click(Sender: TObject);
+var i : integer;
+begin
+   sFrameBar1.Loaded;
+   if sFrameBar1.ActiveFrameIndex>-1 then
+     begin
+       LoadMenu();
+       sFrameBar1.tag:=-1;
+     end;
+   {
+   if sFrameBar1.tag>-1 then
+    begin
+      for i := 0 to sFrameBar1.Items.Count-1 do
+        begin //Убираем всё лишние
+           if sFrameBar1.Items.Items[i].Tag=sFrameBar1.tag then
+             begin
+               sFrameBar1.CloseItem(i, true);
+               //sFrameBar1.Items.Items[i].Visible :=false;
+             end;
+        end;
+      sFrameBar1.Animation:= false;
+      for i := 0 to sFrameBar1.Items.Count-1 do
+        begin //Убираем всё лишние
+           {if sFrameBar1.Items.Items[i].Tag=sFrameBar1.tag then sFrameBar1.CloseItem(i, false);
+           }
+     {       sFrameBar1.Items.Items[i].Visible := true;
+        end;
+       sFrameBar1.tag:=-GetTickCount-1;
+       //sFrameBar1.ActiveFrameIndex := -1;
+      sFrameBar1.Animation:= true;
+    end; }
+end;
+
 procedure TFrmMain.sFrameBar1ItemsGen(Sender: TObject;
   var Frame: TCustomFrame);
   var I : integer;
   MM : TsButton;
   but : IXMLNode;
+  CatBut : IXMLNode;
  cat :IXMLNode;
  path : string;
  fileImg : string;
  BitMap : TBitmap;
 begin
- cat:= XML_Menu.ChildNodes.Nodes[0].ChildNodes[tsTitleItem(Sender).tag];
-  path := ExtractFileDir(application.ExeName) + '\';
-  Frame:= TFrameMenu.Create(Self);
-  Frame.Name := 'cat'+IntToStr(tsTitleItem(Sender).tag);
-  TFrameMenu(Frame).idList := TStringList.Create;
 
-      for i := 0 to cat.ChildNodes.Count -1 do
-        begin
-          but :=  cat.ChildNodes[i];
-          MM := tsButton.Create(nil);
-          MM.Width:=sFrameBar1.Width-20;
-          MM.Height := TFrameMenu(Frame).sTmp.Height;
-          MM.Font := TFrameMenu(Frame).sTmp.font;
-          MM.Caption := but.GetAttributeNS('name','');
-          MM.Top := i*MM.Height;
-          MM.Visible := true;
-          MM.Parent := Frame;
-          MM.Tag := TFrameMenu(Frame).idList.Count;
-          TFrameMenu(Frame).idList.Add(but.GetAttributeNS('pid',''));
-          MM.OnClick :=sMenuClick;
-          MM.Images := TFrameMenu(Frame).ImageList;
-
-          fileImg := path + but.GetAttributeNS('img','');
-          if fileexists(fileimg) then
-            begin
-                BitMap := TBitmap.Create;
-                DetectImage(fileimg, BitMap);
-
-
-               TFrameMenu(Frame).ImageList.Add(BitMap,nil);
-               MM.ImageIndex :=TFrameMenu(Frame).ImageList.Items.Count-1;
-
-            end;
-           //ShowMessage(but.GetAttributeNS('name',''));
-        end;
-
-  {
-  with Frame.Items.Add do
+  {if sFrameBar1.tag>-1 then
     begin
-      FF.Caption:='adsasd';
 
-    end;
-    Frame:= TCustomFrame.CreateParented(TT.Handle);}
+      for i := 0 to sFrameBar1.Items.Count-1 do
+        begin //Убираем всё лишние
+
+            sFrameBar1.Items.Items[i].Visible := true;
+        end;
+       sFrameBar1.tag:=-1;
+       sFrameBar1.ActiveFrameIndex := -1;
+    end
+  else}
+ //ShowMessage(IntToStr(sFrameBar1.tag));
+ {if  (sFrameBar1.tag<-1) and (GetTickCount+sFrameBar1.tag>2000) then
+       sFrameBar1.tag:=-1
+  // sFrameBar1.tag:=-1
+ else }
+ if TRUE then
+    begin
+      sFrameBar1.Top:= sButHeader.Height+sButHeader.Top +10;
+
+      sFrameBar1.Tag := tsTitleItem(Sender).tag;
+     // ShowMessage(IntToStr(sFrameBar1.tag));
+      for i := 0 to sFrameBar1.Items.Count-1 do
+        begin //Убираем всё лишние
+          if sFrameBar1.Items.Items[i].Tag<>sFrameBar1.Tag then
+            sFrameBar1.Items.Items[i].Visible := false
+          else
+            sFrameBar1.Items.Items[i].Visible := true;
+        end;
+      cat:= XML_Menu.ChildNodes.Nodes[0].ChildNodes[tsTitleItem(Sender).tag];
+
+      path := ExtractFileDir(application.ExeName) + '\';
+      Frame:= TFrameMenu.Create(Self);
+      Frame.Name := 'cat'+IntToStr(tsTitleItem(Sender).tag);
+
+
+      TFrameMenu(Frame).idList := TStringList.Create;
+        sButHeadertxt.Caption := cat.GetAttributeNS('name','');
+        sButHeader.Visible:= TRUE;
+        for i := 0 to cat.ChildNodes.Count -1 do
+          begin
+             but :=  cat.ChildNodes[i];
+             MM := tsButton.Create(nil);
+
+
+            MM.Width:=TFrameMenu(Frame).Width-20;
+            MM.Height := TFrameMenu(Frame).sTmp.Height-10;
+            MM.Font := TFrameMenu(Frame).sTmp.font;
+
+            MM.Top := i*MM.Height;
+            MM.Visible := true;
+
+            MM.Parent := TFrameMenu(Frame).sBox;//Frame;
+            MM.Align:= alTop;
+            MM.Tag := TFrameMenu(Frame).idList.Count;
+
+
+
+            MM.OnClick :=sMenuClick;
+            MM.Images := TFrameMenu(Frame).ImageList;
+           // sFrameBar1.Height :=(i+2)*MM.Height+5;
+           // TFrameMenu(Frame).Height:= (i+1)*MM.Height+5;
+
+
+                MM.Caption := but.GetAttributeNS('name','');
+                TFrameMenu(Frame).idList.Add(but.GetAttributeNS('pid',''));
+                fileImg := path + but.GetAttributeNS('img','');
+
+
+
+            if fileexists(fileimg) then
+              begin
+                 BitMap := TBitmap.Create;
+                 DetectImage(fileimg, BitMap);
+
+
+                 TFrameMenu(Frame).ImageList.Add(BitMap,nil);
+                 MM.ImageIndex :=TFrameMenu(Frame).ImageList.Items.Count-1;
+
+              end;
+             //ShowMessage(but.GetAttributeNS('name',''));
+          end;
+      //TFrameMenu(Frame).Height := Bar.Height-10;
+    {
+    with Frame.Items.Add do
+      begin
+        FF.Caption:='adsasd';
+
+      end;
+      Frame:= TCustomFrame.CreateParented(TT.Handle);}
+        TFrameMenu(Frame).Height := sPanMenu.Height-40;
+      end;
+
 end;
 
 procedure TFrmMain.update_program;
@@ -349,6 +472,7 @@ begin
       tt.Caption := cat.GetAttributeNS('name','');
       tt.Tag := i;
       tt.OnCreateFrame := sFrameBar1ItemsGen;
+      //tt.OnClick:= sFrameBar1Items0Click;
 
     end;
 
@@ -356,15 +480,25 @@ begin
     sPanControl.Parent := Bar.sPanelBottom;
     Panel1.Parent := Bar;
 
-    sFrameBar1.Parent := Bar;
-    sFrameBar1.Left := 0;
-    sFrameBar1.Top := 0;
+    sPanMenu.Parent := Bar;
+    //sFrameBar1.Parent := Bar;
+    //sFrameBar1.Left := 0;
+    //sFrameBar1.Top := 0;
+    sPanMenu.Left:=0;
+    sPanMenu.Top := 0;
     Bar.width := 0;
     Bar.Height := sFrameBar1.Height+sPanControl.Height;
+    sButHeader.Parent := Bar;
+    sButHeader.Top:=0;
+    sButHeader.Left:=0;
+    sButHeader.Width:=Bar.Width;
+    sButHeader.Align:=alTop;
+    //sPanMenu.Align:= alClient;
 
     sPanControl.Top := 0;
     sPanControl.Left := 0;
     sPanControl.Align := alBottom;
+    //sButHeader.Align:=alNone;
 end;
 procedure TFrmMain.BtnStopClick(Sender: TObject);
 begin
@@ -505,6 +639,8 @@ begin
 (*
   //  ### media_list with media_player_list
   // media liste erzeugen
+
+
   FMedia_List_Play := VLC.Lib.libvlc_media_list_new(FLib_Play);
   // media in liste setzen
   VLC.Lib.libvlc_media_list_add_media(FMedia_List_Play, FMedia_Play);
