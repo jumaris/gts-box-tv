@@ -11,8 +11,10 @@ uses
 type
   TFrameMenu = class(TFrame)
     sFrameAdapter1: TsFrameAdapter;
-    sTmp: TsButton;
     ImageList: TsAlphaImageList;
+    sBox: TsScrollBox;
+    sPanel1: TsPanel;
+    sTmp: TsButton;
 
     procedure FrameClick(Sender: TObject);
   private

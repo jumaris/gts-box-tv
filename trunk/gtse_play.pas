@@ -111,7 +111,11 @@ begin
   SetParam('STATE','');
   SetParam('PLAY','');
   SetParam('START','');
-  SendCmd('START PID ' + PID + ' 0');
+  if POS('TORRENT',PID)=1 then
+    SendCmd('START ' + PID + ' 0 0 0 0')
+  else
+
+  SendCmd('START ' + PID + ' 0');
 end;
 
 procedure TgtsPlay.STOP();
