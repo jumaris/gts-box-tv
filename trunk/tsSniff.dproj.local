@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>1899.12.30 00:00:00.000.247,=C:\Users\Олег\Documents\RAD Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.098,=C:\Users\Олег\Documents\RAD Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.865,=C:\Users\Олег\Documents\RAD Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.238,=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.820,=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.673,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\gParamStrings.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.341,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\tsEngine.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Project4.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.056,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\Unit3.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.179,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\tsEngine.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\tsEngine.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.392,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\tsSniff.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\tsEngine.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.736,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\tsSniff.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\TS_PLAY\tsSniff.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.794,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit3.dfm=C:\Users\Олег\Documents\RAD Studio\Projects\Unit3.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.794,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit3.pas=C:\Users\Олег\Documents\RAD Studio\Projects\Unit3.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.120,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\gSniffLogTS.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.877,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\tsengine.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\gtsengine.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.056,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\Unit3.dfm=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit3.dfm</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.829,C:\Users\Олег\Documents\RAD Studio\Projects\TS_SNIFF\gSniffLogTS.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\gSniffLogTS.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.930,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\tsengine.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.829,=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.245,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\gtse_play.pas</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.320,C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Project4.dproj=C:\Users\Олег\Documents\RAD Studio\Projects\Project4.dproj</Transaction>
+    <Transaction>1899.12.30 00:00:00.000.652,=C:\Users\Олег\Documents\RAD Studio\Projects\tsengine\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
