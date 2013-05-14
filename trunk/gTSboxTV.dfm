@@ -558,7 +558,7 @@ object FrmMain: TFrmMain
       end
     end
     object sPanControl: TsGroupBox
-      Left = 35
+      Left = 25
       Top = 334
       Width = 512
       Height = 193
@@ -583,7 +583,7 @@ object FrmMain: TFrmMain
       end
       object edtPID: TsEdit
         Left = 17
-        Top = 79
+        Top = 55
         Width = 320
         Height = 21
         Color = clWhite
@@ -608,7 +608,7 @@ object FrmMain: TFrmMain
       end
       object btn_Stop: TsButton
         Left = 17
-        Top = 106
+        Top = 82
         Width = 75
         Height = 25
         Caption = 'PLAY'
@@ -618,7 +618,7 @@ object FrmMain: TFrmMain
       end
       object btn_PLAY: TsButton
         Left = 98
-        Top = 106
+        Top = 82
         Width = 75
         Height = 25
         Caption = 'STOP'
@@ -637,8 +637,8 @@ object FrmMain: TFrmMain
         SkinData.SkinSection = 'BUTTON'
       end
       object sTrackBarVolume: TsTrackBar
-        Left = 188
-        Top = 106
+        Left = 179
+        Top = 82
         Width = 150
         Height = 16
         Max = 200
@@ -670,16 +670,17 @@ object FrmMain: TFrmMain
         OnClick = REFRESH_MENUClick
         SkinData.SkinSection = 'BUTTON'
       end
+      object sButton1: TsButton
+        Left = 3
+        Top = 137
+        Width = 118
+        Height = 25
+        Caption = #1047#1040#1043#1056#1059#1047#1048#1058#1068' '#1052#1045#1053#1070
+        TabOrder = 7
+        OnClick = sButton1Click
+        SkinData.SkinSection = 'BUTTON'
+      end
     end
-  end
-  object sScrollBar1: TsScrollBar
-    Left = 128
-    Top = 128
-    Width = 121
-    Height = 17
-    PageSize = 0
-    TabOrder = 13
-    SkinManager = sSkinManager1
   end
   object DlgOpen: TOpenDialog
     Left = 734

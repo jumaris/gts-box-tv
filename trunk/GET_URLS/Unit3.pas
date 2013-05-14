@@ -6,8 +6,9 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, StdCtrls, cefgui, cefvcl,ceflib, ExtCtrls, sPanel;
 
-const FileMenu='Menu\Menu.lst';
-
+const FileMenu='Update\Menu.lst';
+      FileExeUpd='Update\uTLibVLC_Demo_Prj.exe';
+      PathUpd='Update';
 type
   TFormOsr = class(TForm)
     OSR: TChromiumOSR;
@@ -57,7 +58,12 @@ begin
       osr.Browser.StopLoad;
 
       LstSourse.Text := StringReplace(message,'$EXPORT_LIST$','',[rfReplaceAll]);
-      LstSourse.SaveToFile(FileMenu);
+      LstSourse.Insert(0,'<MenuList updatedir="'+FileExeUpd+'">');
+      LstSourse.Add('</MenuList>');
+      if not DirectoryExists(PathUpd) then mkDir(PathUpd);
+
+      LstSourse.SaveToFile(FileMenu,Tencoding.UTF8);
+
       //ShowMessage(message);
       GlobStatus:=2;
       Close;

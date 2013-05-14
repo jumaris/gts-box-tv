@@ -60,10 +60,10 @@ object FormOsr: TFormOsr
       '        if (SOP(channels_obj.url) != '#39#39') {'
       '            if (LAST != channels_obj.title) {'
       
-        '                XM = XM + '#39'<br>\n'#39' + '#39'<button name="'#39' + channels' +
-        '_obj.title + '#39'"  img="img\\'#39' + channels_obj.icon.substring(chann' +
-        'els_obj.icon.lastIndexOf('#39'/'#39') + 1) + '#39'" pid="TORRENT '#39' + SOP(cha' +
-        'nnels_obj.url) + '#39'"></button>'#39';'
+        '                XM = XM + '#39'\n'#39' + '#39'<button name="'#39' + channels_obj' +
+        '.title + '#39'"  img="img\\'#39' + channels_obj.icon.substring(channels_' +
+        'obj.icon.lastIndexOf('#39'/'#39') + 1) + '#39'" pid="PID '#39' + SOP(channels_ob' +
+        'j.url) + '#39'"></button>'#39';'
       '                LAST = channels_obj.title;'
       '            }'
       '        }'
