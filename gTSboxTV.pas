@@ -11,7 +11,7 @@ uses
   , msxmldom, XMLDoc, sSkinManager,
   ImgList, acAlphaImageList, UnitFrameMenu,sButton, uBarForm,
    Jpeg, pngimage, GIFImg, sPanel, sEdit, sTrackBar, sGroupBox, ShellApi,
-  sScrollBar;
+  sScrollBar,Registry;
 
 const
   ChrCRLF   = #13#10;
@@ -81,10 +81,10 @@ type
     Timer4: TTimer;
     REFRESH_MENU: TsButton;
     lblVolume: TLabel;
-    sScrollBar1: TsScrollBar;
     sPanMenu: TsPanel;
     sButHeaderTxt: TsButton;
     sButHeader: TsPanel;
+    sButton1: TsButton;
     procedure Init;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
 
@@ -120,6 +120,7 @@ type
     procedure bStopClick(Sender: TObject);
     procedure Button10Click(Sender: TObject);
     procedure LoadMenu;
+    procedure DownLoadMenu;
     procedure Timer3Timer(Sender: TObject);
     procedure FormMouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer);
     procedure btnExitClick(Sender: TObject);
@@ -129,6 +130,7 @@ type
     procedure REFRESH_MENUClick(Sender: TObject);
     procedure sFrameBar1Items0Click(Sender: TObject);
     procedure sButHeaderTxtClick(Sender: TObject);
+    procedure sButton1Click(Sender: TObject);
   private
     { Private-Deklarationen }
     procedure PrepareAndStart_Base;
@@ -141,7 +143,8 @@ type
 
     procedure OnLogVLCBase(const log_message: libvlc_log_message_t);
     procedure OnLogVLCPlay(const log_message: libvlc_log_message_t);
-
+    procedure SaveVolume();
+    procedure LoadVolume();
   public
     { Public-Deklarationen }
     VLC_Play : TLibVLC;
@@ -281,6 +284,11 @@ begin
         end;
   //sHOWmESSAGE('AAA');
 
+end;
+
+procedure TFrmMain.sButton1Click(Sender: TObject);
+begin
+DownLoadMenu;
 end;
 
 procedure TFrmMain.sFrameBar1Items0Click(Sender: TObject);
@@ -440,6 +448,17 @@ begin
     end;
 end;
 
+procedure TFrmMain.DownLoadMenu;
+var app_name : string;
+begin
+
+      app_name := ExtractFileDir(application.ExeName) + '\GetMenu.exe';
+      ShellExecute(0,'open',pchar(app_name),nil,nil,SW_SHOW);
+      sleep(2000);
+
+
+end;
+
 procedure TFrmMain.LoadMenu;
 var i,j : integer;
  F : IXMLNode;
@@ -449,8 +468,8 @@ var i,j : integer;
  fl : string;
 
 begin
-
-  if FileExists('C:\temp\MENU\List.xml') then  fl :='C:\temp\MENU\List.xml'
+  if FileExists(ExtractFileDir(application.ExeName) + '\UPDATE\Menu.lst') then  fl :=ExtractFileDir(application.ExeName) + '\UPDATE\Menu.lst'
+  //if FileExists('C:\temp\MENU\List.xml') then  fl :='C:\temp\MENU\List.xml'
   else  fl := ExtractFileDir(application.ExeName) + '\MENU\List.xml';
 
 
@@ -550,6 +569,7 @@ end;
 
 procedure TFrmMain.FormCreate(Sender: TObject);
 begin
+ LoadVolume;
   gts := TgtsPlay.Create;
   Bar := TBarForm.Create(nil);
   Bar.Show;
@@ -736,7 +756,7 @@ begin
   LogStrPlay('project: prepare play');
   PrepareAndStart_Play;
   try
-    sTrackBarVolume.Position := VLC_Play.VLC_GetVolume
+    //sTrackBarVolume.Position := VLC_Play.VLC_GetVolume
   except
   end;
 
@@ -755,7 +775,7 @@ begin
   PrepareAndStart_Play;
 
   try
-    tsTrackBar(Sender).Position := VLC_Play.VLC_GetVolume
+    //tsTrackBar(Sender).Position := VLC_Play.VLC_GetVolume
   except
   end;
 
@@ -949,6 +969,31 @@ begin
     VLC_Base.VLC_Stop;
 end;
 
+procedure TFrmMain.SaveVolume();
+var  Reg: TRegistry;
+begin
+   { создаём объект TRegistry }
+  Reg := TRegistry.Create;
+  Reg.RootKey:=HKEY_CURRENT_USER;
+  Reg.OpenKey('Software\gtsBoxTV', true);
+  Reg.WriteInteger('volume', sTrackBarVolume.Position);
+end;
+
+procedure TFrmMain.LoadVolume();
+var  Reg: TRegistry;
+begin
+  try
+   { создаём объект TRegistry }
+    Reg := TRegistry.Create;
+    Reg.RootKey:=HKEY_CURRENT_USER;
+    Reg.OpenKey('Software\gtsBoxTV', true);
+    sTrackBarVolume.Position := Reg.ReadInteger('volume');
+    sTrackBarVolumeChange(sTrackBarVolume);
+  except
+
+  end;
+  end;
+
 procedure TFrmMain.sTrackBarVolumeChange(Sender: TObject);
 begin
   if not Assigned(VLC_Play) then
@@ -956,7 +1001,8 @@ begin
 
   lblVolume.Caption := IntToStr(tsTrackBar(Sender).Position);
   lblVolume.font.Color := tsTrackBar(Sender).Position*$FF+$00FFFF;
-  VLC_Play.VLC_SetVolume(tsTrackBar(Sender).Position)
+  VLC_Play.VLC_SetVolume(tsTrackBar(Sender).Position);
+  SaveVolume();
 end;
 
 procedure TFrmMain.BtnOpenClick(Sender: TObject);
@@ -1037,6 +1083,7 @@ procedure TFrmMain.bPlayClick(Sender: TObject);
 begin
 
   gts.START(EdtPID.Text);
+  LoadVolume();
 end;
 
 procedure TFrmMain.OnLogVLCBase(const log_message: libvlc_log_message_t);
@@ -1093,7 +1140,7 @@ LblStat.Caption := gts.GetParam('STATE') + ' ' + gts.GetParam('START') + #13#10+
      //edit4.Text := gts.GetParam('START');
      edtUrlPlay.Text := GetURL(gts.GetParam('START'));
      edtUrlBase.Text := gts.GetParam('START');
-
+     LoadVolume();
      {
      VLC_Base.VLC_PlayMedia(EdtURLBase.Text, TStringList(MmoOptBase.Lines), nil);
      sleep(500);}
