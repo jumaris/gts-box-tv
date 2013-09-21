@@ -1,7 +1,7 @@
 object FrameMenu: TFrameMenu
   Left = 0
   Top = 0
-  Width = 422
+  Width = 477
   Height = 124
   VertScrollBar.ButtonSize = 30
   VertScrollBar.Smooth = True
@@ -15,16 +15,16 @@ object FrameMenu: TFrameMenu
   object sBox: TsScrollBox
     Left = 0
     Top = 0
-    Width = 360
+    Width = 468
     Height = 124
     Align = alClient
     TabOrder = 0
     SkinData.SkinSection = 'PANEL_LOW'
-    ExplicitWidth = 305
+    ExplicitWidth = 360
     object sTmp: TsButton
-      Left = 11
+      Left = 3
       Top = 19
-      Width = 358
+      Width = 405
       Height = 62
       Caption = 'sTmp'
       Font.Charset = DEFAULT_CHARSET
@@ -39,9 +39,9 @@ object FrameMenu: TFrameMenu
     end
   end
   object sPanel1: TsPanel
-    Left = 360
+    Left = 468
     Top = 0
-    Width = 62
+    Width = 9
     Height = 124
     Align = alRight
     Caption = 'sPanel1'
