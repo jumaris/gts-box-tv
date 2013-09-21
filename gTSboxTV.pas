@@ -572,6 +572,7 @@ begin
  LoadVolume;
   gts := TgtsPlay.Create;
   Bar := TBarForm.Create(nil);
+
   Bar.Show;
   LoadMenu;
   Init;
@@ -1178,7 +1179,7 @@ begin
 wd := Bar.Width;
   if (mouse.CursorPos.X>(Self.Width*0.8)) or (mouse.CursorPos.X>Bar.Left) then
      begin
-       if wd<380 then
+       if wd<450 then
          begin
            wd := wd+ 20;
          end;

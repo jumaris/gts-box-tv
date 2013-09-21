@@ -3,8 +3,8 @@ object BarForm: TBarForm
   Top = 0
   BorderStyle = bsNone
   Caption = 'BarForm'
-  ClientHeight = 226
-  ClientWidth = 253
+  ClientHeight = 272
+  ClientWidth = 288
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -17,12 +17,15 @@ object BarForm: TBarForm
   TextHeight = 13
   object sPanelBottom: TsPanel
     Left = 0
-    Top = 32
-    Width = 253
+    Top = 78
+    Width = 288
     Height = 194
     Align = alBottom
     Caption = 'sPanelBottom'
     TabOrder = 0
     SkinData.SkinSection = 'PANEL'
+    ExplicitLeft = -8
+    ExplicitTop = -114
+    ExplicitWidth = 257
   end
 end

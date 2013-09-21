@@ -479,7 +479,7 @@ object FrmMain: TFrmMain
         BorderStyle = bsNone
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -43
+        Font.Height = -35
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -533,22 +533,22 @@ object FrmMain: TFrmMain
     object sButHeader: TsPanel
       Left = 362
       Top = 286
-      Width = 225
+      Width = 400
       Height = 51
       Caption = 'sButHeader'
       TabOrder = 2
       Visible = False
       SkinData.SkinSection = 'PANEL'
       object sButHeaderTxt: TsButton
-        Left = 3
-        Top = 3
-        Width = 425
+        Left = 7
+        Top = -7
+        Width = 428
         Height = 49
         Align = alCustom
         Caption = 'sButHeaderTxt'
         Font.Charset = DEFAULT_CHARSET
         Font.Color = clWindowText
-        Font.Height = -32
+        Font.Height = -27
         Font.Name = 'Tahoma'
         Font.Style = [fsBold]
         ParentFont = False
@@ -558,10 +558,10 @@ object FrmMain: TFrmMain
       end
     end
     object sPanControl: TsGroupBox
-      Left = 25
+      Left = 14
       Top = 334
       Width = 512
-      Height = 193
+      Height = 124
       Color = clGradientActiveCaption
       ParentBackground = False
       ParentColor = False
@@ -583,7 +583,7 @@ object FrmMain: TFrmMain
       end
       object edtPID: TsEdit
         Left = 17
-        Top = 55
+        Top = 9
         Width = 320
         Height = 21
         Color = clWhite
@@ -608,7 +608,7 @@ object FrmMain: TFrmMain
       end
       object btn_Stop: TsButton
         Left = 17
-        Top = 82
+        Top = 36
         Width = 75
         Height = 25
         Caption = 'PLAY'
@@ -618,7 +618,7 @@ object FrmMain: TFrmMain
       end
       object btn_PLAY: TsButton
         Left = 98
-        Top = 82
+        Top = 36
         Width = 75
         Height = 25
         Caption = 'STOP'
@@ -628,7 +628,7 @@ object FrmMain: TFrmMain
       end
       object sButton4: TsButton
         Left = 293
-        Top = 165
+        Top = 95
         Width = 75
         Height = 25
         Caption = #1042#1067#1061#1054#1044
@@ -638,7 +638,7 @@ object FrmMain: TFrmMain
       end
       object sTrackBarVolume: TsTrackBar
         Left = 179
-        Top = 82
+        Top = 36
         Width = 150
         Height = 16
         Max = 200
@@ -652,7 +652,7 @@ object FrmMain: TFrmMain
       end
       object REFRESHPROGRAM: TsButton
         Left = 127
-        Top = 165
+        Top = 95
         Width = 138
         Height = 25
         Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1055#1056#1054#1043#1056#1040#1052#1052#1059
@@ -662,7 +662,7 @@ object FrmMain: TFrmMain
       end
       object REFRESH_MENU: TsButton
         Left = 3
-        Top = 165
+        Top = 95
         Width = 118
         Height = 25
         Caption = #1054#1041#1053#1054#1042#1048#1058#1068' '#1052#1045#1053#1070
@@ -672,7 +672,7 @@ object FrmMain: TFrmMain
       end
       object sButton1: TsButton
         Left = 3
-        Top = 137
+        Top = 67
         Width = 118
         Height = 25
         Caption = #1047#1040#1043#1056#1059#1047#1048#1058#1068' '#1052#1045#1053#1070
